@@ -1,0 +1,418 @@
+/**
+ * @name Rainy Cat — Cozy Drip
+ * @author Basado en ClearVision V7
+ * @version 1.0.0
+ * @description Lluvia en la ciudad, gato curioso, calma húmeda.
+ * @source https://github.com/alx123echo/fondos
+ */
+
+/* IMPORT CSS BASE (ClearVision V7) */
+@import url("https://clearvision.github.io/ClearVision-v7/main.css");
+@import url("https://clearvision.github.io/ClearVision-v7/betterdiscord.css");
+
+/* ============================================
+   PALETA LLUVIOSA — CÁLIDA EN LA FRÍA
+   ============================================ */
+:root {
+  /* COLORES PRINCIPALES — Ámbar de ventanas en la lluvia */
+  --main-color: #C4956A;        /* Ámbar mojado */
+  --hover-color: #D4B896;        /* Crema cálida lluvia */
+  --success-color: #7A8B6E;       /* Verde musgo húmedo */
+  --danger-color: #A65A5A;        /* Rojo ladrillo mojado */
+
+  /* COLORES DE ESTADO — Cálidos en la fría noche */
+  --online-color: #7A8B6E;       /* En línea — musgo húmedo */
+  --idle-color: #C4956A;          /* Ausente — ámbar mojado */
+  --dnd-color: #A65A5A;           /* No molestar — ladrillo mojado */
+  --streaming-color: #8B7DA6;     /* Streaming — lavanda lluvia */
+  --offline-color: #6B7A8B;       /* Desconectado — gris azulado lluvia */
+
+  /* FONDO PRINCIPAL — GATO LLUVIA */
+  --background-shading-percent: 100%;
+  --background-image: url("https://github.com/alx123echo/fondos/blob/main/gato7.png?raw=true");
+  --background-position: center;
+  --background-size: cover;
+  --background-attachment: fixed;
+  --background-filter: none;
+
+  /* FONDO POPOUT USUARIO */
+  --user-popout-image: var(--background-image);
+  --user-popout-position: var(--background-position);
+  --user-popout-size: var(--background-size);
+  --user-popout-attachment: var(--background-attachment);
+  --user-popout-filter: var(--background-filter);
+
+  /* FONDO MODAL USUARIO */
+  --user-modal-image: var(--background-image);
+  --user-modal-position: var(--background-position);
+  --user-modal-size: var(--background-size);
+  --user-modal-attachment: var(--background-attachment);
+  --user-modal-filter: var(--background-filter);
+
+  /* ICONO HOME */
+  --home-icon: url("https://clearvision.github.io/icons/discord.svg");
+  --home-size: cover;
+
+  /* FUENTES */
+  --main-font: "gg sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --code-font: Consolas, "gg mono", "Liberation Mono", Menlo, Courier, monospace;
+}
+
+/* ============================================
+   SHADING MÍNIMO — FONDO TRANSPARENTE
+   ============================================ */
+:is(.theme-dark, .theme-light .theme-dark) {
+  --background-shading: rgba(15, 25, 40, 0.15);   /* Azul lluvia muy tenue */
+  --card-shading: rgba(0, 0, 0, 0.0);
+  --popout-shading: rgba(0, 0, 0, 0.0);
+  --modal-shading: rgba(0, 0, 0, 0.0);
+  --input-shading: rgba(0, 0, 0, 0.0);
+  --normal-text: #F5EDE3;                        /* Crema cálido */
+  --muted-text: #B8A898;                         /* Beige lluvia apagado */
+}
+
+/* ============================================
+   BOTONES TIPO VIDRIO LLUVIA
+   ============================================ */
+
+/* Botones principales — Ámbar mojado translúcido */
+.lookFilled_dd4f85.colorBrand_dd4f85,
+.lookFilled_dd4f85.colorPrimary_dd4f85 {
+  background: rgba(196, 149, 106, 0.15) !important;
+  backdrop-filter: blur(24px) saturate(0.8) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(0.8) !important;
+  border: 1px solid rgba(212, 184, 150, 0.2) !important;
+  box-shadow: 
+    0 2px 12px rgba(196, 149, 106, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.02) !important;
+  color: #F5EDE3 !important;
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border-radius: 18px !important;
+}
+
+/* Hover botones — Como luz de ventana en la lluvia */
+.lookFilled_dd4f85.colorBrand_dd4f85:hover,
+.lookFilled_dd4f85.colorPrimary_dd4f85:hover {
+  background: rgba(212, 184, 150, 0.22) !important;
+  backdrop-filter: blur(28px) saturate(0.9) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(0.9) !important;
+  border-color: rgba(212, 184, 150, 0.32) !important;
+  box-shadow: 
+    0 4px 20px rgba(196, 149, 106, 0.1),
+    0 0 50px rgba(196, 149, 106, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Active botones — Hundirse suave en la lluvia */
+.lookFilled_dd4f85.colorBrand_dd4f85:active,
+.lookFilled_dd4f85.colorPrimary_dd4f85:active {
+  background: rgba(196, 149, 106, 0.28) !important;
+  transform: translateY(0) scale(0.98) !important;
+  box-shadow: 
+    0 1px 8px rgba(196, 149, 106, 0.05) !important;
+}
+
+/* Botones outline — Vidrio casi invisible */
+.lookOutlined_dd4f85.colorBrand_dd4f85 {
+  background: rgba(255, 255, 255, 0.02) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(212, 184, 150, 0.22) !important;
+  color: #D4B896 !important;
+  border-radius: 18px !important;
+}
+
+.lookOutlined_dd4f85.colorBrand_dd4f85:hover {
+  background: rgba(196, 149, 106, 0.08) !important;
+  border-color: rgba(212, 184, 150, 0.38) !important;
+}
+
+/* Botones peligro — Ladrillo mojado */
+.lookFilled_dd4f85.colorRed_dd4f85 {
+  background: rgba(166, 90, 90, 0.12) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(166, 90, 90, 0.18) !important;
+  border-radius: 18px !important;
+}
+
+/* Botones éxito — Musgo húmedo */
+.lookFilled_dd4f85.colorGreen_dd4f85 {
+  background: rgba(122, 139, 110, 0.12) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(122, 139, 110, 0.18) !important;
+  border-radius: 18px !important;
+}
+
+/* ============================================
+   TARJETAS Y CONTENEDORES — VIDRIO LLUVIA
+   ============================================ */
+
+/* Tarjetas de mensajes — Etéreas como vapor */
+.message_d5deea {
+  background: rgba(15, 25, 40, 0.1) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border-radius: 20px !important;
+  border: 1px solid rgba(196, 149, 106, 0.03) !important;
+}
+
+/* Mensaje mencionado */
+.message_d5deea.mentioned_d5deea {
+  background: rgba(196, 149, 106, 0.06) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border-left: 2px solid rgba(212, 184, 150, 0.3) !important;
+}
+
+/* Hover mensajes — Sutil como gota en cristal */
+.message_d5deea:hover {
+  background: rgba(15, 25, 40, 0.18) !important;
+}
+
+/* Embed de mensajes */
+.embedFull_b0068a {
+  background: rgba(15, 25, 40, 0.15) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-left: 3px solid var(--main-color) !important;
+  border-radius: 16px !important;
+}
+
+/* ============================================
+   POPOUTS Y MODALES — VIDRIO LLUVIA
+   ============================================ */
+
+/* Popout usuario */
+.userPopoutOuter_c69a7b {
+  background: rgba(15, 25, 40, 0.3) !important;
+  backdrop-filter: blur(32px) saturate(0.8) !important;
+  -webkit-backdrop-filter: blur(32px) saturate(0.8) !important;
+  border: 1px solid rgba(212, 184, 150, 0.06) !important;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35) !important;
+  border-radius: 32px !important;
+}
+
+/* Modal perfil */
+.root_f9a4c9 {
+  background: rgba(15, 25, 40, 0.35) !important;
+  backdrop-filter: blur(36px) saturate(0.8) !important;
+  -webkit-backdrop-filter: blur(36px) saturate(0.8) !important;
+  border: 1px solid rgba(212, 184, 150, 0.06) !important;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35) !important;
+  border-radius: 32px !important;
+}
+
+/* Menú contextual */
+.menu_d90b3d {
+  background: rgba(15, 25, 40, 0.4) !important;
+  backdrop-filter: blur(32px) saturate(0.8) !important;
+  -webkit-backdrop-filter: blur(32px) saturate(0.8) !important;
+  border: 1px solid rgba(212, 184, 150, 0.06) !important;
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.35) !important;
+  border-radius: 28px !important;
+}
+
+/* Tooltip — Como gota en cristal empañado */
+.tooltip_b6c360 {
+  background: rgba(15, 25, 40, 0.5) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid rgba(212, 184, 150, 0.08) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3) !important;
+  color: #F5EDE3 !important;
+  border-radius: 18px !important;
+}
+
+/* Autocomplete */
+.autocomplete_f23da8 {
+  background: rgba(15, 25, 40, 0.4) !important;
+  backdrop-filter: blur(28px) !important;
+  -webkit-backdrop-filter: blur(28px) !important;
+  border: 1px solid rgba(212, 184, 150, 0.05) !important;
+  border-radius: 24px !important;
+}
+
+/* ============================================
+   INPUTS Y BARRAS — VIDRIO LLUVIA
+   ============================================ */
+
+/* Barra búsqueda */
+.searchBar_a5de63 {
+  background: rgba(15, 25, 40, 0.18) !important;
+  backdrop-filter: blur(22px) !important;
+  -webkit-backdrop-filter: blur(22px) !important;
+  border: 1px solid rgba(212, 184, 150, 0.08) !important;
+  border-radius: 32px !important;
+}
+
+.searchBar_a5de63:focus-within {
+  background: rgba(15, 25, 40, 0.28) !important;
+  border-color: rgba(212, 184, 150, 0.18) !important;
+  box-shadow: 0 0 24px rgba(196, 149, 106, 0.06) !important;
+}
+
+/* Área escritura */
+.scrollableContainer_d0696b {
+  background: rgba(15, 25, 40, 0.18) !important;
+  backdrop-filter: blur(22px) !important;
+  -webkit-backdrop-filter: blur(22px) !important;
+  border: 1px solid rgba(212, 184, 150, 0.05) !important;
+  border-radius: 28px !important;
+}
+
+/* Input textos */
+.inputDefault_f8bc55,
+.input_f8bc55 {
+  background: rgba(15, 25, 40, 0.18) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+  border: 1px solid rgba(212, 184, 150, 0.05) !important;
+  color: #F5EDE3 !important;
+  border-radius: 18px !important;
+}
+
+.inputDefault_f8bc55:focus,
+.input_f8bc55:focus {
+  background: rgba(15, 25, 40, 0.28) !important;
+  border-color: rgba(212, 184, 150, 0.12) !important;
+}
+
+/* ============================================
+   SIDEBAR Y PANELES — VIDRIO MUY SUTIL
+   ============================================ */
+
+/* Sidebar izquierda */
+.sidebar_a4d4d9 {
+  background: rgba(15, 25, 40, 0.08) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* Panel miembros */
+.membersWrap_cbd271 {
+  background: rgba(15, 25, 40, 0.05) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+/* Header servidor/canal */
+.header_fd6364,
+.title_a7d72e {
+  background: rgba(15, 25, 40, 0.1) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+/* ============================================
+   ELEMENTOS INTERACTIVOS — LLUVIA SUAVE
+   ============================================ */
+
+/* Glow seleccionados — Como reflejo en charco */
+.item_c4cd66,
+.modeSelected_d8bfb3 .link_d8bfb3 {
+  background: rgba(196, 149, 106, 0.06) !important;
+  box-shadow: 0 0 12px rgba(196, 149, 106, 0.03) !important;
+  border-left: 2px solid rgba(212, 184, 150, 0.2) !important;
+  border-radius: 0 16px 16px 0 !important;
+}
+
+/* Reacciones */
+.reaction_f61c73.reactionMe_f61c73 {
+  background: rgba(196, 149, 106, 0.06) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+  border-color: rgba(212, 184, 150, 0.15) !important;
+}
+
+/* Scrollbar — Ámbar mojado */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgba(196, 149, 106, 0.4) 0%,
+    rgba(212, 184, 150, 0.25) 50%,
+    rgba(196, 149, 106, 0.12) 100%
+  ) !important;
+  border-radius: 14px !important;
+  border: 5px solid transparent !important;
+  background-clip: padding-box !important;
+}
+
+/* Barra progreso — Ámbar lluvia */
+.mediaBarGrabber_d12f5a,
+.mediaBarProgress_d12f5a {
+  background: linear-gradient(90deg, #C4956A 0%, #D4B896 100%) !important;
+}
+
+/* Typing indicator */
+.typing_d7ebeb {
+  background: rgba(15, 25, 40, 0.22) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(212, 184, 150, 0.06) !important;
+  border-radius: 24px !important;
+}
+
+/* Separadores — Como gotas cayendo */
+.divider_c2654d {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(196, 149, 106, 0.1) 20%,
+    rgba(212, 184, 150, 0.18) 50%,
+    rgba(196, 149, 106, 0.1) 80%,
+    transparent 100%
+  ) !important;
+}
+
+/* Avatar hablando */
+.avatarSpeaking_c51b4e {
+  box-shadow: 
+    0 0 0 2px rgba(196, 149, 106, 0.25),
+    0 0 12px rgba(196, 149, 106, 0.08) !important;
+}
+
+/* Badges — Ámbar lluvia */
+.numberBadge_df8943 {
+  background: rgba(196, 149, 106, 0.3) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+}
+
+/* Switch */
+.container_cebd1c {
+  background: rgba(255, 255, 255, 0.03) !important;
+}
+
+.container_cebd1c.checked_cebd1c {
+  background: rgba(196, 149, 106, 0.28) !important;
+}
+
+/* Slider — Ámbar lluvia */
+.barFill_c7a159 {
+  background: linear-gradient(90deg, #C4956A 0%, #D4B896 100%) !important;
+}
+
+/* ============================================
+   ANIMACIONES — LENTAS, COMO LA LLUVIA
+   ============================================ */
+
+@keyframes rainDrop {
+  0%, 100% { 
+    box-shadow: 0 2px 12px rgba(196, 149, 106, 0.04); 
+  }
+  50% { 
+    box-shadow: 0 4px 18px rgba(196, 149, 106, 0.08), 0 0 40px rgba(196, 149, 106, 0.02); 
+  }
+}
+
+.lookFilled_dd4f85.colorBrand_dd4f85:active {
+  animation: rainDrop 6s infinite ease-in-out !important;
+}
+
+/* ============================================
+   ADD ADDITIONAL CSS BELOW HERE
+   ============================================ */

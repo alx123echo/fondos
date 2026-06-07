@@ -1,0 +1,418 @@
+/**
+ * @name Moonlight Cat — Deep Calm
+ * @author Basado en ClearVision V7
+ * @version 1.0.0
+ * @description Noche serena, luna creciente, calma profunda.
+ * @source https://github.com/alx123echo/fondos
+ */
+
+/* IMPORT CSS BASE (ClearVision V7) */
+@import url("https://clearvision.github.io/ClearVision-v7/main.css");
+@import url("https://clearvision.github.io/ClearVision-v7/betterdiscord.css");
+
+/* ============================================
+   PALETA NOCTURNA — CALMA PROFUNDA
+   ============================================ */
+:root {
+  /* COLORES PRINCIPALES — Azul luna, muy suave */
+  --main-color: #7C9CB5;        /* Azul pálido luna */
+  --hover-color: #A3BFD4;        /* Azul claro bruma */
+  --success-color: #6B8E7B;       /* Verde musgo nocturno */
+  --danger-color: #A65D5D;        /* Rojo apagado ladrillo */
+
+  /* COLORES DE ESTADO — Apagados, sin estridencias */
+  --online-color: #6B8E7B;       /* En línea — verde musgo */
+  --idle-color: #7C9CB5;          /* Ausente — azul luna */
+  --dnd-color: #A65D5D;           /* No molestar — ladrillo */
+  --streaming-color: #8B7CB5;     /* Streaming — lavanda nocturna */
+  --offline-color: #6B7280;       /* Desconectado — gris piedra */
+
+  /* FONDO PRINCIPAL — GATO LUNA */
+  --background-shading-percent: 100%;
+  --background-image: url("https://github.com/alx123echo/fondos/blob/main/gato6.png?raw=true");
+  --background-position: center;
+  --background-size: cover;
+  --background-attachment: fixed;
+  --background-filter: none;
+
+  /* FONDO POPOUT USUARIO */
+  --user-popout-image: var(--background-image);
+  --user-popout-position: var(--background-position);
+  --user-popout-size: var(--background-size);
+  --user-popout-attachment: var(--background-attachment);
+  --user-popout-filter: var(--background-filter);
+
+  /* FONDO MODAL USUARIO */
+  --user-modal-image: var(--background-image);
+  --user-modal-position: var(--background-position);
+  --user-modal-size: var(--background-size);
+  --user-modal-attachment: var(--background-attachment);
+  --user-modal-filter: var(--background-filter);
+
+  /* ICONO HOME */
+  --home-icon: url("https://clearvision.github.io/icons/discord.svg");
+  --home-size: cover;
+
+  /* FUENTES */
+  --main-font: "gg sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --code-font: Consolas, "gg mono", "Liberation Mono", Menlo, Courier, monospace;
+}
+
+/* ============================================
+   SHADING MÍNIMO — FONDO TRANSPARENTE
+   ============================================ */
+:is(.theme-dark, .theme-light .theme-dark) {
+  --background-shading: rgba(10, 20, 35, 0.12);   /* Azul noche muy tenue */
+  --card-shading: rgba(0, 0, 0, 0.0);
+  --popout-shading: rgba(0, 0, 0, 0.0);
+  --modal-shading: rgba(0, 0, 0, 0.0);
+  --input-shading: rgba(0, 0, 0, 0.0);
+  --normal-text: #E8EDF2;                        /* Blanco azulado suave */
+  --muted-text: #8FA8C0;                         /* Azul pálido apagado */
+}
+
+/* ============================================
+   BOTONES TIPO VIDRIO NOCTURNO
+   ============================================ */
+
+/* Botones principales — Azul luna translúcido */
+.lookFilled_dd4f85.colorBrand_dd4f85,
+.lookFilled_dd4f85.colorPrimary_dd4f85 {
+  background: rgba(124, 156, 181, 0.12) !important;
+  backdrop-filter: blur(20px) saturate(0.85) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(0.85) !important;
+  border: 1px solid rgba(163, 191, 212, 0.18) !important;
+  box-shadow: 
+    0 2px 10px rgba(124, 156, 181, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.02) !important;
+  color: #E8EDF2 !important;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border-radius: 16px !important;
+}
+
+/* Hover botones — Como luz de luna tocando el agua */
+.lookFilled_dd4f85.colorBrand_dd4f85:hover,
+.lookFilled_dd4f85.colorPrimary_dd4f85:hover {
+  background: rgba(163, 191, 212, 0.2) !important;
+  backdrop-filter: blur(24px) saturate(0.95) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(0.95) !important;
+  border-color: rgba(163, 191, 212, 0.3) !important;
+  box-shadow: 
+    0 4px 16px rgba(124, 156, 181, 0.08),
+    0 0 40px rgba(124, 156, 181, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Active botones — Hundirse suavemente */
+.lookFilled_dd4f85.colorBrand_dd4f85:active,
+.lookFilled_dd4f85.colorPrimary_dd4f85:active {
+  background: rgba(124, 156, 181, 0.25) !important;
+  transform: translateY(0) scale(0.98) !important;
+  box-shadow: 
+    0 1px 6px rgba(124, 156, 181, 0.06) !important;
+}
+
+/* Botones outline — Casi invisible */
+.lookOutlined_dd4f85.colorBrand_dd4f85 {
+  background: rgba(255, 255, 255, 0.02) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(163, 191, 212, 0.2) !important;
+  color: #A3BFD4 !important;
+  border-radius: 16px !important;
+}
+
+.lookOutlined_dd4f85.colorBrand_dd4f85:hover {
+  background: rgba(124, 156, 181, 0.08) !important;
+  border-color: rgba(163, 191, 212, 0.35) !important;
+}
+
+/* Botones peligro — Ladrillo apagado */
+.lookFilled_dd4f85.colorRed_dd4f85 {
+  background: rgba(166, 93, 93, 0.12) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(166, 93, 93, 0.2) !important;
+  border-radius: 16px !important;
+}
+
+/* Botones éxito — Musgo nocturno */
+.lookFilled_dd4f85.colorGreen_dd4f85 {
+  background: rgba(107, 142, 123, 0.12) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(107, 142, 123, 0.2) !important;
+  border-radius: 16px !important;
+}
+
+/* ============================================
+   TARJETAS Y CONTENEDORES — VIDRIO NOCTURNO
+   ============================================ */
+
+/* Tarjetas de mensajes — Muy etéreas */
+.message_d5deea {
+  background: rgba(10, 20, 35, 0.12) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-radius: 18px !important;
+  border: 1px solid rgba(124, 156, 181, 0.04) !important;
+}
+
+/* Mensaje mencionado */
+.message_d5deea.mentioned_d5deea {
+  background: rgba(124, 156, 181, 0.06) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-left: 2px solid rgba(163, 191, 212, 0.3) !important;
+}
+
+/* Hover mensajes — Apenas perceptible */
+.message_d5deea:hover {
+  background: rgba(10, 20, 35, 0.2) !important;
+}
+
+/* Embed de mensajes */
+.embedFull_b0068a {
+  background: rgba(10, 20, 35, 0.18) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-left: 3px solid var(--main-color) !important;
+  border-radius: 14px !important;
+}
+
+/* ============================================
+   POPOUTS Y MODALES — VIDRIO LUNA
+   ============================================ */
+
+/* Popout usuario */
+.userPopoutOuter_c69a7b {
+  background: rgba(10, 20, 35, 0.3) !important;
+  backdrop-filter: blur(28px) saturate(0.85) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(0.85) !important;
+  border: 1px solid rgba(163, 191, 212, 0.08) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
+  border-radius: 28px !important;
+}
+
+/* Modal perfil */
+.root_f9a4c9 {
+  background: rgba(10, 20, 35, 0.35) !important;
+  backdrop-filter: blur(32px) saturate(0.85) !important;
+  -webkit-backdrop-filter: blur(32px) saturate(0.85) !important;
+  border: 1px solid rgba(163, 191, 212, 0.08) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
+  border-radius: 28px !important;
+}
+
+/* Menú contextual */
+.menu_d90b3d {
+  background: rgba(10, 20, 35, 0.4) !important;
+  backdrop-filter: blur(28px) saturate(0.85) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(0.85) !important;
+  border: 1px solid rgba(163, 191, 212, 0.08) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3) !important;
+  border-radius: 24px !important;
+}
+
+/* Tooltip — Fantasma de luna */
+.tooltip_b6c360 {
+  background: rgba(10, 20, 35, 0.5) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(163, 191, 212, 0.1) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25) !important;
+  color: #E8EDF2 !important;
+  border-radius: 16px !important;
+}
+
+/* Autocomplete */
+.autocomplete_f23da8 {
+  background: rgba(10, 20, 35, 0.4) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid rgba(163, 191, 212, 0.06) !important;
+  border-radius: 20px !important;
+}
+
+/* ============================================
+   INPUTS Y BARRAS — VIDRIO NOCTURNO
+   ============================================ */
+
+/* Barra búsqueda */
+.searchBar_a5de63 {
+  background: rgba(10, 20, 35, 0.2) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+  border: 1px solid rgba(163, 191, 212, 0.1) !important;
+  border-radius: 28px !important;
+}
+
+.searchBar_a5de63:focus-within {
+  background: rgba(10, 20, 35, 0.3) !important;
+  border-color: rgba(163, 191, 212, 0.2) !important;
+  box-shadow: 0 0 20px rgba(124, 156, 181, 0.06) !important;
+}
+
+/* Área escritura */
+.scrollableContainer_d0696b {
+  background: rgba(10, 20, 35, 0.2) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+  border: 1px solid rgba(163, 191, 212, 0.06) !important;
+  border-radius: 24px !important;
+}
+
+/* Input textos */
+.inputDefault_f8bc55,
+.input_f8bc55 {
+  background: rgba(10, 20, 35, 0.2) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border: 1px solid rgba(163, 191, 212, 0.06) !important;
+  color: #E8EDF2 !important;
+  border-radius: 16px !important;
+}
+
+.inputDefault_f8bc55:focus,
+.input_f8bc55:focus {
+  background: rgba(10, 20, 35, 0.3) !important;
+  border-color: rgba(163, 191, 212, 0.15) !important;
+}
+
+/* ============================================
+   SIDEBAR Y PANELES — VIDRIO MUY SUTIL
+   ============================================ */
+
+/* Sidebar izquierda */
+.sidebar_a4d4d9 {
+  background: rgba(10, 20, 35, 0.08) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+/* Panel miembros */
+.membersWrap_cbd271 {
+  background: rgba(10, 20, 35, 0.05) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/* Header servidor/canal */
+.header_fd6364,
+.title_a7d72e {
+  background: rgba(10, 20, 35, 0.1) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+}
+
+/* ============================================
+   ELEMENTOS INTERACTIVOS — LUNA SUAVE
+   ============================================ */
+
+/* Glow seleccionados — Casi imperceptible */
+.item_c4cd66,
+.modeSelected_d8bfb3 .link_d8bfb3 {
+  background: rgba(124, 156, 181, 0.08) !important;
+  box-shadow: 0 0 10px rgba(124, 156, 181, 0.04) !important;
+  border-left: 2px solid rgba(163, 191, 212, 0.25) !important;
+  border-radius: 0 14px 14px 0 !important;
+}
+
+/* Reacciones */
+.reaction_f61c73.reactionMe_f61c73 {
+  background: rgba(124, 156, 181, 0.08) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+  border-color: rgba(163, 191, 212, 0.2) !important;
+}
+
+/* Scrollbar — Luna pálida */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgba(124, 156, 181, 0.4) 0%,
+    rgba(163, 191, 212, 0.25) 50%,
+    rgba(124, 156, 181, 0.15) 100%
+  ) !important;
+  border-radius: 12px !important;
+  border: 4px solid transparent !important;
+  background-clip: padding-box !important;
+}
+
+/* Barra progreso — Azul luna */
+.mediaBarGrabber_d12f5a,
+.mediaBarProgress_d12f5a {
+  background: linear-gradient(90deg, #7C9CB5 0%, #A3BFD4 100%) !important;
+}
+
+/* Typing indicator */
+.typing_d7ebeb {
+  background: rgba(10, 20, 35, 0.25) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border: 1px solid rgba(163, 191, 212, 0.08) !important;
+  border-radius: 20px !important;
+}
+
+/* Separadores — Luna tenue */
+.divider_c2654d {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(124, 156, 181, 0.12) 20%,
+    rgba(163, 191, 212, 0.2) 50%,
+    rgba(124, 156, 181, 0.12) 80%,
+    transparent 100%
+  ) !important;
+}
+
+/* Avatar hablando */
+.avatarSpeaking_c51b4e {
+  box-shadow: 
+    0 0 0 2px rgba(124, 156, 181, 0.3),
+    0 0 10px rgba(124, 156, 181, 0.1) !important;
+}
+
+/* Badges — Luna pálida */
+.numberBadge_df8943 {
+  background: rgba(124, 156, 181, 0.35) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+}
+
+/* Switch */
+.container_cebd1c {
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+.container_cebd1c.checked_cebd1c {
+  background: rgba(124, 156, 181, 0.3) !important;
+}
+
+/* Slider — Azul luna */
+.barFill_c7a159 {
+  background: linear-gradient(90deg, #7C9CB5 0%, #A3BFD4 100%) !important;
+}
+
+/* ============================================
+   ANIMACIONES — LENTAS, COMO LA MAREA
+   ============================================ */
+
+@keyframes moonlightPulse {
+  0%, 100% { 
+    box-shadow: 0 2px 10px rgba(124, 156, 181, 0.04); 
+  }
+  50% { 
+    box-shadow: 0 4px 14px rgba(124, 156, 181, 0.08), 0 0 30px rgba(124, 156, 181, 0.02); 
+  }
+}
+
+.lookFilled_dd4f85.colorBrand_dd4f85:active {
+  animation: moonlightPulse 5s infinite ease-in-out !important;
+}
+
+/* ============================================
+   ADD ADDITIONAL CSS BELOW HERE
+   ============================================ */

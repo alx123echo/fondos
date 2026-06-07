@@ -1,0 +1,390 @@
+/**
+ * @name Sunny Cat — Glass UI
+ * @author Basado en ClearVision V7
+ * @version 1.0.0
+ * @description Fondo transparente con UI tipo vidrio.
+ * @source https://github.com/alx123echo/fondos
+ */
+
+/* IMPORT CSS BASE (ClearVision V7) */
+@import url("https://clearvision.github.io/ClearVision-v7/main.css");
+@import url("https://clearvision.github.io/ClearVision-v7/betterdiscord.css");
+
+/* ============================================
+   PALETA DIURNA — CÁLIDA Y TRANSPARENTE
+   ============================================ */
+:root {
+  /* COLORES PRINCIPALES */
+  --main-color: #F59E0B;
+  --hover-color: #FBBF24;
+  --success-color: #10B981;
+  --danger-color: #EF4444;
+
+  /* COLORES DE ESTADO */
+  --online-color: #10B981;
+  --idle-color: #F59E0B;
+  --dnd-color: #EF4444;
+  --streaming-color: #8B5CF6;
+  --offline-color: #9CA3AF;
+
+  /* FONDO PRINCIPAL — TRANSPARENTE (ClearVision default) */
+  --background-shading-percent: 100%;
+  --background-image: url("https://raw.githubusercontent.com/alx123echo/fondos/main/gato2.png");
+  --background-position: center;
+  --background-size: cover;
+  --background-attachment: fixed;
+  --background-filter: none; /* Sin filtro, imagen natural */
+
+  /* FONDO POPOUT USUARIO */
+  --user-popout-image: var(--background-image);
+  --user-popout-position: var(--background-position);
+  --user-popout-size: var(--background-size);
+  --user-popout-attachment: var(--background-attachment);
+  --user-popout-filter: var(--background-filter);
+
+  /* FONDO MODAL USUARIO */
+  --user-modal-image: var(--background-image);
+  --user-modal-position: var(--background-position);
+  --user-modal-size: var(--background-size);
+  --user-modal-attachment: var(--background-attachment);
+  --user-modal-filter: var(--background-filter);
+
+  /* ICONO HOME */
+  --home-icon: url("https://clearvision.github.io/icons/discord.svg");
+  --home-size: cover;
+
+  /* FUENTES */
+  --main-font: "gg sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --code-font: Consolas, "gg mono", "Liberation Mono", Menlo, Courier, monospace;
+}
+
+/* ============================================
+   SHADING MÍNIMO — FONDO TRANSPARENTE
+   ============================================ */
+:is(.theme-dark, .theme-light .theme-dark) {
+  --background-shading: rgba(0, 0, 0, 0.15);   /* Casi transparente */
+  --card-shading: rgba(0, 0, 0, 0.0);          /* Tarjetas sin fondo por defecto */
+  --popout-shading: rgba(0, 0, 0, 0.0);        /* Popouts sin fondo por defecto */
+  --modal-shading: rgba(0, 0, 0, 0.0);         /* Modales sin fondo por defecto */
+  --input-shading: rgba(0, 0, 0, 0.0);         /* Inputs sin fondo por defecto */
+  --normal-text: #FFF8F0;
+  --muted-text: #FDE68A;
+}
+
+/* ============================================
+   BOTONES TIPO VIDRIO — SOLO ELEMENTOS UI
+   ============================================ */
+
+/* Botones principales */
+.lookFilled_dd4f85.colorBrand_dd4f85,
+.lookFilled_dd4f85.colorPrimary_dd4f85 {
+  background: rgba(245, 158, 11, 0.25) !important;
+  backdrop-filter: blur(12px) saturate(1.2) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(1.2) !important;
+  border: 1px solid rgba(251, 191, 36, 0.4) !important;
+  box-shadow: 
+    0 4px 20px rgba(245, 158, 11, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1) !important;
+  color: #FFF8F0 !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Hover botones */
+.lookFilled_dd4f85.colorBrand_dd4f85:hover,
+.lookFilled_dd4f85.colorPrimary_dd4f85:hover {
+  background: rgba(251, 191, 36, 0.35) !important;
+  backdrop-filter: blur(16px) saturate(1.4) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(1.4) !important;
+  border-color: rgba(251, 191, 36, 0.6) !important;
+  box-shadow: 
+    0 6px 30px rgba(245, 158, 11, 0.25),
+    0 0 40px rgba(245, 158, 11, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Active botones */
+.lookFilled_dd4f85.colorBrand_dd4f85:active,
+.lookFilled_dd4f85.colorPrimary_dd4f85:active {
+  background: rgba(245, 158, 11, 0.4) !important;
+  transform: translateY(0) scale(0.98) !important;
+}
+
+/* Botones outline */
+.lookOutlined_dd4f85.colorBrand_dd4f85 {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1.5px solid rgba(251, 191, 36, 0.5) !important;
+  color: #FBBF24 !important;
+}
+
+.lookOutlined_dd4f85.colorBrand_dd4f85:hover {
+  background: rgba(245, 158, 11, 0.15) !important;
+  border-color: rgba(251, 191, 36, 0.7) !important;
+}
+
+/* Botones peligro */
+.lookFilled_dd4f85.colorRed_dd4f85 {
+  background: rgba(239, 68, 68, 0.25) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(239, 68, 68, 0.4) !important;
+}
+
+/* Botones éxito */
+.lookFilled_dd4f85.colorGreen_dd4f85 {
+  background: rgba(16, 185, 129, 0.25) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(16, 185, 129, 0.4) !important;
+}
+
+/* ============================================
+   TARJETAS Y CONTENEDORES — VIDRIO
+   ============================================ */
+
+/* Tarjetas de mensajes */
+.message_d5deea {
+  background: rgba(0, 0, 0, 0.25) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border-radius: 12px !important;
+}
+
+/* Mensaje mencionado */
+.message_d5deea.mentioned_d5deea {
+  background: rgba(245, 158, 11, 0.15) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border-left: 3px solid rgba(251, 191, 36, 0.7) !important;
+}
+
+/* Hover mensajes */
+.message_d5deea:hover {
+  background: rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Embed de mensajes */
+.embedFull_b0068a {
+  background: rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  border-left: 4px solid var(--main-color) !important;
+  border-radius: 8px !important;
+}
+
+/* ============================================
+   POPOUTS Y MODALES — VIDRIO
+   ============================================ */
+
+/* Popout usuario */
+.userPopoutOuter_c69a7b {
+  background: rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(20px) saturate(1.2) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4) !important;
+  border-radius: 20px !important;
+}
+
+/* Modal perfil */
+.root_f9a4c9 {
+  background: rgba(0, 0, 0, 0.45) !important;
+  backdrop-filter: blur(24px) saturate(1.2) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(1.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4) !important;
+  border-radius: 20px !important;
+}
+
+/* Menú contextual */
+.menu_d90b3d {
+  background: rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(20px) saturate(1.2) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4) !important;
+  border-radius: 16px !important;
+}
+
+/* Tooltip */
+.tooltip_b6c360 {
+  background: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(251, 191, 36, 0.3) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  color: #FFF8F0 !important;
+  border-radius: 12px !important;
+}
+
+/* Autocomplete */
+.autocomplete_f23da8 {
+  background: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ============================================
+   INPUTS Y BARRAS — VIDRIO
+   ============================================ */
+
+/* Barra búsqueda */
+.searchBar_a5de63 {
+  background: rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(251, 191, 36, 0.3) !important;
+  border-radius: 20px !important;
+}
+
+.searchBar_a5de63:focus-within {
+  background: rgba(0, 0, 0, 0.4) !important;
+  border-color: rgba(251, 191, 36, 0.6) !important;
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.2) !important;
+}
+
+/* Área escritura */
+.scrollableContainer_d0696b {
+  background: rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 16px !important;
+}
+
+/* Input textos */
+.inputDefault_f8bc55,
+.input_f8bc55 {
+  background: rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #FFF8F0 !important;
+  border-radius: 12px !important;
+}
+
+.inputDefault_f8bc55:focus,
+.input_f8bc55:focus {
+  background: rgba(0, 0, 0, 0.4) !important;
+  border-color: rgba(251, 191, 36, 0.5) !important;
+}
+
+/* ============================================
+   SIDEBAR Y PANELES — VIDRIO SUTIL
+   ============================================ */
+
+/* Sidebar izquierda */
+.sidebar_a4d4d9 {
+  background: rgba(0, 0, 0, 0.2) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/* Panel miembros */
+.membersWrap_cbd271 {
+  background: rgba(0, 0, 0, 0.15) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+}
+
+/* Header servidor/canal */
+.header_fd6364,
+.title_a7d72e {
+  background: rgba(0, 0, 0, 0.25) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* ============================================
+   ELEMENTOS INTERACTIVOS
+   ============================================ */
+
+/* Glow seleccionados */
+.item_c4cd66,
+.modeSelected_d8bfb3 .link_d8bfb3 {
+  background: rgba(245, 158, 11, 0.2) !important;
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.2) !important;
+  border-left: 3px solid rgba(251, 191, 36, 0.6) !important;
+}
+
+/* Reacciones */
+.reaction_f61c73.reactionMe_f61c73 {
+  background: rgba(245, 158, 11, 0.2) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+  border-color: rgba(251, 191, 36, 0.5) !important;
+}
+
+/* Scrollbar cálida */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgba(245, 158, 11, 0.8) 0%,
+    rgba(251, 191, 36, 0.6) 50%,
+    rgba(245, 158, 11, 0.3) 100%
+  ) !important;
+  border-radius: 8px !important;
+}
+
+/* Barra progreso */
+.mediaBarGrabber_d12f5a,
+.mediaBarProgress_d12f5a {
+  background: linear-gradient(90deg, #F59E0B 0%, #FBBF24 100%) !important;
+}
+
+/* Typing indicator */
+.typing_d7ebeb {
+  background: rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(251, 191, 36, 0.3) !important;
+  border-radius: 16px !important;
+}
+
+/* Separadores */
+.divider_c2654d {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(245, 158, 11, 0.4) 20%,
+    rgba(251, 191, 36, 0.6) 50%,
+    rgba(245, 158, 11, 0.4) 80%,
+    transparent 100%
+  ) !important;
+}
+
+/* Avatar hablando */
+.avatarSpeaking_c51b4e {
+  box-shadow: 
+    0 0 0 2px rgba(245, 158, 11, 0.8),
+    0 0 15px rgba(245, 158, 11, 0.4) !important;
+}
+
+/* Badges */
+.numberBadge_df8943 {
+  background: rgba(245, 158, 11, 0.7) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+}
+
+/* Switch */
+.container_cebd1c {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.container_cebd1c.checked_cebd1c {
+  background: rgba(245, 158, 11, 0.5) !important;
+}
+
+/* Slider */
+.barFill_c7a159 {
+  background: linear-gradient(90deg, #F59E0B 0%, #FBBF24 100%) !important;
+}
+
+/* ============================================
+   ADD ADDITIONAL CSS BELOW HERE
+   ============================================ */

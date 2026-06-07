@@ -1,0 +1,357 @@
+/**
+ * @name Cat City
+ * @author Basado en ClearVision V7
+ * @version 1.0.0
+ * @description Tema cyberpunk con gato y degradado rosa-negro.
+ * @source https://github.com/alx123echo/fondos
+ */
+
+/* IMPORT CSS BASE (ClearVision V7) */
+@import url("https://clearvision.github.io/ClearVision-v7/main.css");
+@import url("https://clearvision.github.io/ClearVision-v7/betterdiscord.css");
+
+/* ============================================
+   PALETA CYBERPUNK — ROSA DEGRADADO A NEGRO
+   ============================================ */
+:root {
+  /* COLORES PRINCIPALES — Degradado rosa a negro */
+  --main-color: #E91E8C;        /* Rosa vibrante (acento principal) */
+  --hover-color: #FF5DAF;        /* Rosa claro (hover) */
+  --success-color: #22C55E;      /* Verde éxito */
+  --danger-color: #EF4444;       /* Rojo peligro */
+
+  /* COLORES DE ESTADO */
+  --online-color: #22C55E;       /* En línea */
+  --idle-color: #F59E0B;         /* Ausente */
+  --dnd-color: #EF4444;          /* No molestar */
+  --streaming-color: #E91E8C;      /* Streaming (rosa) */
+  --offline-color: #6B7280;      /* Desconectado */
+
+  /* FONDO PRINCIPAL — GATO CYBERPUNK */
+  --background-shading-percent: 100%;
+  --background-image: url("https://github.com/alx123echo/fondos/blob/main/gato.png?raw=true");
+  --background-position: center;
+  --background-size: cover;
+  --background-attachment: fixed;
+  --background-filter: saturate(calc(var(--saturation-factor, 1) * 1.2)) brightness(0.6);
+
+  /* FONDO POPOUT USUARIO */
+  --user-popout-image: var(--background-image);
+  --user-popout-position: var(--background-position);
+  --user-popout-size: var(--background-size);
+  --user-popout-attachment: var(--background-attachment);
+  --user-popout-filter: var(--background-filter);
+
+  /* FONDO MODAL USUARIO */
+  --user-modal-image: var(--background-image);
+  --user-modal-position: var(--background-position);
+  --user-modal-size: var(--background-size);
+  --user-modal-attachment: var(--background-attachment);
+  --user-modal-filter: var(--background-filter);
+
+  /* ICONO HOME */
+  --home-icon: url("https://clearvision.github.io/icons/discord.svg");
+  --home-size: cover;
+
+  /* FUENTES */
+  --main-font: "gg sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --code-font: Consolas, "gg mono", "Liberation Mono", Menlo, Courier, monospace;
+}
+
+/* ============================================
+   SHADING PARA TEMA OSCURO (rosa-negro)
+   ============================================ */
+:is(.theme-dark, .theme-light .theme-dark) {
+  --background-shading: rgba(0, 0, 0, 0.5);   /* Fondo semi-transparente */
+  --card-shading: rgba(20, 5, 15, 0.55);       /* Tarjetas con tinte rosa oscuro */
+  --popout-shading: rgba(15, 5, 12, 0.7);      /* Popouts con tinte rosa oscuro */
+  --modal-shading: rgba(15, 5, 12, 0.6);       /* Modales con tinte rosa oscuro */
+  --input-shading: rgba(20, 5, 15, 0.55);      /* Inputs con tinte rosa oscuro */
+  --normal-text: #FFE4F0;                       /* Texto normal rosa claro */
+  --muted-text: #C48BA8;                        /* Texto apagado rosa grisáceo */
+}
+
+/* ============================================
+   BOTONES CON DEGRADADO ROSA A NEGRO
+   ============================================ */
+
+/* Botones principales — Degradado rosa a negro */
+.lookFilled_dd4f85.colorBrand_dd4f85,
+.lookFilled_dd4f85.colorPrimary_dd4f85 {
+  background: linear-gradient(
+    135deg,
+    #E91E8C 0%,
+    #B0106E 25%,
+    #6B0842 50%,
+    #2D0318 75%,
+    #0A0105 100%
+  ) !important;
+  border: 1px solid rgba(233, 30, 140, 0.5) !important;
+  box-shadow: 0 4px 20px rgba(233, 30, 140, 0.4), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Hover de botones — Brillo rosa intenso */
+.lookFilled_dd4f85.colorBrand_dd4f85:hover,
+.lookFilled_dd4f85.colorPrimary_dd4f85:hover {
+  background: linear-gradient(
+    135deg,
+    #FF5DAF 0%,
+    #E91E8C 25%,
+    #B0106E 50%,
+    #6B0842 75%,
+    #2D0318 100%
+  ) !important;
+  box-shadow: 0 6px 30px rgba(233, 30, 140, 0.6), 
+              0 0 40px rgba(233, 30, 140, 0.2),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Botones secundarios (outline) */
+.lookOutlined_dd4f85.colorBrand_dd4f85 {
+  background: transparent !important;
+  border: 2px solid #E91E8C !important;
+  color: #FF5DAF !important;
+  box-shadow: 0 0 15px rgba(233, 30, 140, 0.2) !important;
+}
+
+.lookOutlined_dd4f85.colorBrand_dd4f85:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(233, 30, 140, 0.2) 0%,
+    rgba(45, 3, 24, 0.4) 100%
+  ) !important;
+  border-color: #FF5DAF !important;
+  box-shadow: 0 0 25px rgba(233, 30, 140, 0.4) !important;
+}
+
+/* Botones de peligro con degradado rojo-negro */
+.lookFilled_dd4f85.colorRed_dd4f85 {
+  background: linear-gradient(
+    135deg,
+    #EF4444 0%,
+    #991B1B 50%,
+    #450A0A 100%
+  ) !important;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4) !important;
+}
+
+/* Botones de éxito con degradado verde-negro */
+.lookFilled_dd4f85.colorGreen_dd4f85 {
+  background: linear-gradient(
+    135deg,
+    #22C55E 0%,
+    #15803D 50%,
+    #052E16 100%
+  ) !important;
+  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4) !important;
+}
+
+/* ============================================
+   EFECTOS CYBERPUNK ADICIONALES
+   ============================================ */
+
+/* Glow en elementos seleccionados — Rosa neón */
+.item_c4cd66,
+.modeSelected_d8bfb3 .link_d8bfb3 {
+  box-shadow: 0 0 15px rgba(233, 30, 140, 0.5), 
+              0 0 30px rgba(233, 30, 140, 0.2) !important;
+  border-left: 3px solid #E91E8C !important;
+}
+
+/* Scrollbar con degradado rosa a negro */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #E91E8C 0%,
+    #B0106E 25%,
+    #6B0842 50%,
+    #2D0318 75%,
+    #0A0105 100%
+  ) !important;
+  border-radius: 4px !important;
+}
+
+/* Barra de búsqueda con borde rosa neón */
+.searchBar_a5de63 {
+  background: rgba(10, 1, 5, 0.6) !important;
+  border: 1px solid rgba(233, 30, 140, 0.4) !important;
+  box-shadow: 0 0 10px rgba(233, 30, 140, 0.15) !important;
+}
+
+.searchBar_a5de63:focus-within {
+  border-color: #E91E8C !important;
+  box-shadow: 0 0 20px rgba(233, 30, 140, 0.3) !important;
+}
+
+/* Área de escritura con borde sutil rosa */
+.scrollableContainer_d0696b {
+  background: rgba(10, 1, 5, 0.7) !important;
+  border: 1px solid rgba(233, 30, 140, 0.25) !important;
+  box-shadow: 0 0 15px rgba(233, 30, 140, 0.1) !important;
+}
+
+/* Glow en mensajes propios (resaltado) */
+.message_d5deea.mentioned_d5deea {
+  background: linear-gradient(
+    90deg,
+    rgba(233, 30, 140, 0.15) 0%,
+    rgba(45, 3, 24, 0.1) 100%
+  ) !important;
+  border-left: 3px solid #E91E8C !important;
+  box-shadow: 0 0 15px rgba(233, 30, 140, 0.2) !important;
+}
+
+/* Efecto hover en mensajes */
+.message_d5deea:hover {
+  background: rgba(233, 30, 140, 0.05) !important;
+}
+
+/* Botones de reacción con glow rosa */
+.reaction_f61c73.reactionMe_f61c73 {
+  background: linear-gradient(
+    135deg,
+    rgba(233, 30, 140, 0.3) 0%,
+    rgba(45, 3, 24, 0.4) 100%
+  ) !important;
+  border-color: #E91E8C !important;
+  box-shadow: 0 0 12px rgba(233, 30, 140, 0.3) !important;
+}
+
+/* Barra de progreso de voz/música rosa */
+.mediaBarGrabber_d12f5a,
+.mediaBarProgress_d12f5a,
+.mediaBarWrapper_d12f5a .mediaBarGrabber_d12f5a {
+  background: linear-gradient(
+    90deg,
+    #E91E8C 0%,
+    #FF5DAF 50%,
+    #6B0842 100%
+  ) !important;
+}
+
+/* Indicador de actividad typing */
+.typing_d7ebeb {
+  background: rgba(10, 1, 5, 0.8) !important;
+  border: 1px solid rgba(233, 30, 140, 0.3) !important;
+  border-radius: 12px !important;
+  padding: 4px 12px !important;
+  box-shadow: 0 0 10px rgba(233, 30, 140, 0.2) !important;
+}
+
+/* Tooltips con estilo cyberpunk */
+.tooltip_b6c360 {
+  background: linear-gradient(
+    135deg,
+    rgba(20, 5, 15, 0.98) 0%,
+    rgba(10, 1, 5, 0.98) 100%
+  ) !important;
+  border: 1px solid rgba(233, 30, 140, 0.4) !important;
+  box-shadow: 0 4px 25px rgba(233, 30, 140, 0.3) !important;
+  color: #FFE4F0 !important;
+}
+
+/* Menú contextual con glow rosa */
+.menu_d90b3d {
+  background: linear-gradient(
+    135deg,
+    rgba(20, 5, 15, 0.98) 0%,
+    rgba(10, 1, 5, 0.98) 100%
+  ) !important;
+  border: 1px solid rgba(233, 30, 140, 0.3) !important;
+  box-shadow: 0 8px 32px rgba(233, 30, 140, 0.2) !important;
+}
+
+/* Separadores con degradado rosa */
+.divider_c2654d {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #E91E8C 25%,
+    #FF5DAF 50%,
+    #E91E8C 75%,
+    transparent 100%
+  ) !important;
+  height: 2px !important;
+}
+
+/* Avatar hablando en llamada con glow rosa */
+.avatarSpeaking_c51b4e {
+  box-shadow: 0 0 0 2px #E91E8C, 
+              0 0 15px #E91E8C,
+              0 0 30px rgba(233, 30, 140, 0.5) !important;
+}
+
+/* Barra de servidor seleccionada */
+.pill_e6f2d0 {
+  background: linear-gradient(
+    180deg,
+    #E91E8C 0%,
+    #6B0842 100%
+  ) !important;
+  box-shadow: 0 0 10px rgba(233, 30, 140, 0.5) !important;
+}
+
+/* Badges con degradado rosa */
+.numberBadge_df8943 {
+  background: linear-gradient(
+    135deg,
+    #E91E8C 0%,
+    #B0106E 100%
+  ) !important;
+  box-shadow: 0 2px 8px rgba(233, 30, 140, 0.4) !important;
+}
+
+/* Switch/toggle rosa */
+.container_cebd1c {
+  background: linear-gradient(
+    135deg,
+    #6B0842 0%,
+    #2D0318 100%
+  ) !important;
+}
+
+.container_cebd1c.checked_cebd1c {
+  background: linear-gradient(
+    135deg,
+    #E91E8C 0%,
+    #B0106E 100%
+  ) !important;
+  box-shadow: 0 0 15px rgba(233, 30, 140, 0.4) !important;
+}
+
+/* Slider rosa */
+.barFill_c7a159 {
+  background: linear-gradient(
+    90deg,
+    #E91E8C 0%,
+    #FF5DAF 100%
+  ) !important;
+}
+
+/* Input focus con glow rosa */
+.inputDefault_f8bc55:focus,
+.input_f8bc55:focus {
+  border-color: #E91E8C !important;
+  box-shadow: 0 0 15px rgba(233, 30, 140, 0.3) !important;
+}
+
+/* ============================================
+   ANIMACIONES CYBERPUNK
+   ============================================ */
+
+/* Pulso sutil en botones principales */
+@keyframes cyberpunkPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(233, 30, 140, 0.4); }
+  50% { box-shadow: 0 4px 25px rgba(233, 30, 140, 0.6), 0 0 40px rgba(233, 30, 140, 0.2); }
+}
+
+.lookFilled_dd4f85.colorBrand_dd4f85:active {
+  animation: cyberpunkPulse 2s infinite !important;
+}
+
+/* ============================================
+   ADD ADDITIONAL CSS BELOW HERE
+   ============================================ */

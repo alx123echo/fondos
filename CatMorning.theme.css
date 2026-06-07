@@ -1,0 +1,419 @@
+/**
+ * @name Cat Morning — Peaceful Sunday
+ * @author Basado en ClearVision V7
+ * @version 1.0.0
+ * @description Mañana tranquila, luz dorada suave, sin prisa.
+ * @source https://github.com/alx123echo/fondos
+ */
+
+/* IMPORT CSS BASE (ClearVision V7) */
+@import url("https://clearvision.github.io/ClearVision-v7/main.css");
+@import url("https://clearvision.github.io/ClearVision-v7/betterdiscord.css");
+
+/* ============================================
+   PALETA TRANQUILA — MAÑANA DORADA SUAVE
+   ============================================ */
+:root {
+  /* COLORES PRINCIPALES — Dorado suave, cálido sin gritar */
+  --main-color: #D4A574;        /* Caramelo suave */
+  --hover-color: #E8C4A0;        /* Crema dorada */
+  --success-color: #86A873;       /* Verde salvia */
+  --danger-color: #C07878;       /* Rosa apagado */
+
+  /* COLORES DE ESTADO — Suaves, sin estridencias */
+  --online-color: #86A873;       /* En línea — verde salvia */
+  --idle-color: #D4A574;         /* Ausente — caramelo */
+  --dnd-color: #C07878;          /* No molestar — rosa apagado */
+  --streaming-color: #8B9DC3;      /* Streaming — azul lavanda */
+  --offline-color: #A8A29E;      /* Desconectado — gris cálido */
+
+  /* FONDO PRINCIPAL — GATO MAÑANERO */
+  --background-shading-percent: 100%;
+  --background-image: url("https://github.com/alx123echo/fondos/blob/main/gato5.png?raw=true");
+  --background-position: center;
+  --background-size: cover;
+  --background-attachment: fixed;
+  --background-filter: none;
+
+  /* FONDO POPOUT USUARIO */
+  --user-popout-image: var(--background-image);
+  --user-popout-position: var(--background-position);
+  --user-popout-size: var(--background-size);
+  --user-popout-attachment: var(--background-attachment);
+  --user-popout-filter: var(--background-filter);
+
+  /* FONDO MODAL USUARIO */
+  --user-modal-image: var(--background-image);
+  --user-modal-position: var(--background-position);
+  --user-modal-size: var(--background-size);
+  --user-modal-attachment: var(--background-attachment);
+  --user-modal-filter: var(--background-filter);
+
+  /* ICONO HOME */
+  --home-icon: url("https://clearvision.github.io/icons/discord.svg");
+  --home-size: cover;
+
+  /* FUENTES */
+  --main-font: "gg sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --code-font: Consolas, "gg mono", "Liberation Mono", Menlo, Courier, monospace;
+}
+
+/* ============================================
+   SHADING MÍNIMO — FONDO TRANSPARENTE
+   ============================================ */
+:is(.theme-dark, .theme-light .theme-dark) {
+  --background-shading: rgba(60, 40, 20, 0.1);   /* Marrón muy tenue, casi nada */
+  --card-shading: rgba(0, 0, 0, 0.0);
+  --popout-shading: rgba(0, 0, 0, 0.0);
+  --modal-shading: rgba(0, 0, 0, 0.0);
+  --input-shading: rgba(0, 0, 0, 0.0);
+  --normal-text: #FFF8F0;                        /* Crema muy cálido */
+  --muted-text: #D4C4B0;                         /* Beige apagado */
+}
+
+/* ============================================
+   BOTONES TIPO VIDRIO SUAVE
+   ============================================ */
+
+/* Botones principales — Caramelo translúcido */
+.lookFilled_dd4f85.colorBrand_dd4f85,
+.lookFilled_dd4f85.colorPrimary_dd4f85 {
+  background: rgba(212, 165, 116, 0.18) !important;
+  backdrop-filter: blur(16px) saturate(0.9) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(0.9) !important;
+  border: 1px solid rgba(232, 196, 160, 0.25) !important;
+  box-shadow: 
+    0 2px 12px rgba(212, 165, 116, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.03) !important;
+  color: #FFF8F0 !important;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border-radius: 14px !important;
+}
+
+/* Hover botones — Como la luz de la mañana entrando */
+.lookFilled_dd4f85.colorBrand_dd4f85:hover,
+.lookFilled_dd4f85.colorPrimary_dd4f85:hover {
+  background: rgba(232, 196, 160, 0.28) !important;
+  backdrop-filter: blur(20px) saturate(1) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1) !important;
+  border-color: rgba(232, 196, 160, 0.4) !important;
+  box-shadow: 
+    0 4px 20px rgba(212, 165, 116, 0.12),
+    0 0 40px rgba(212, 165, 116, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Active botones — Suave, sin brusquedad */
+.lookFilled_dd4f85.colorBrand_dd4f85:active,
+.lookFilled_dd4f85.colorPrimary_dd4f85:active {
+  background: rgba(212, 165, 116, 0.32) !important;
+  transform: translateY(0) scale(0.98) !important;
+  box-shadow: 
+    0 1px 8px rgba(212, 165, 116, 0.1) !important;
+}
+
+/* Botones outline — Vidrio casi invisible */
+.lookOutlined_dd4f85.colorBrand_dd4f85 {
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(232, 196, 160, 0.3) !important;
+  color: #E8C4A0 !important;
+  border-radius: 14px !important;
+}
+
+.lookOutlined_dd4f85.colorBrand_dd4f85:hover {
+  background: rgba(212, 165, 116, 0.1) !important;
+  border-color: rgba(232, 196, 160, 0.5) !important;
+}
+
+/* Botones peligro — Rosa apagado, sin agresividad */
+.lookFilled_dd4f85.colorRed_dd4f85 {
+  background: rgba(192, 120, 120, 0.15) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(192, 120, 120, 0.25) !important;
+  border-radius: 14px !important;
+}
+
+/* Botones éxito — Verde salvia */
+.lookFilled_dd4f85.colorGreen_dd4f85 {
+  background: rgba(134, 168, 115, 0.15) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(134, 168, 115, 0.25) !important;
+  border-radius: 14px !important;
+}
+
+/* ============================================
+   TARJETAS Y CONTENEDORES — VIDRIO MATE
+   ============================================ */
+
+/* Tarjetas de mensajes — Muy suave */
+.message_d5deea {
+  background: rgba(60, 40, 20, 0.15) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(212, 165, 116, 0.05) !important;
+}
+
+/* Mensaje mencionado */
+.message_d5deea.mentioned_d5deea {
+  background: rgba(212, 165, 116, 0.08) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-left: 2px solid rgba(232, 196, 160, 0.4) !important;
+}
+
+/* Hover mensajes — Sutil */
+.message_d5deea:hover {
+  background: rgba(60, 40, 20, 0.22) !important;
+}
+
+/* Embed de mensajes */
+.embedFull_b0068a {
+  background: rgba(60, 40, 20, 0.2) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border-left: 3px solid var(--main-color) !important;
+  border-radius: 12px !important;
+}
+
+/* ============================================
+   POPOUTS Y MODALES — VIDRIO MATE TRANQUILO
+   ============================================ */
+
+/* Popout usuario */
+.userPopoutOuter_c69a7b {
+  background: rgba(60, 40, 20, 0.35) !important;
+  backdrop-filter: blur(24px) saturate(0.9) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(0.9) !important;
+  border: 1px solid rgba(232, 196, 160, 0.1) !important;
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 24px !important;
+}
+
+/* Modal perfil */
+.root_f9a4c9 {
+  background: rgba(60, 40, 20, 0.4) !important;
+  backdrop-filter: blur(28px) saturate(0.9) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(0.9) !important;
+  border: 1px solid rgba(232, 196, 160, 0.1) !important;
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 24px !important;
+}
+
+/* Menú contextual */
+.menu_d90b3d {
+  background: rgba(60, 40, 20, 0.45) !important;
+  backdrop-filter: blur(24px) saturate(0.9) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(0.9) !important;
+  border: 1px solid rgba(232, 196, 160, 0.1) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25) !important;
+  border-radius: 20px !important;
+}
+
+/* Tooltip — Suave, casi etéreo */
+.tooltip_b6c360 {
+  background: rgba(60, 40, 20, 0.55) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(232, 196, 160, 0.15) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2) !important;
+  color: #FFF8F0 !important;
+  border-radius: 14px !important;
+}
+
+/* Autocomplete */
+.autocomplete_f23da8 {
+  background: rgba(60, 40, 20, 0.45) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(232, 196, 160, 0.08) !important;
+  border-radius: 16px !important;
+}
+
+/* ============================================
+   INPUTS Y BARRAS — VIDRIO MATE
+   ============================================ */
+
+/* Barra búsqueda */
+.searchBar_a5de63 {
+  background: rgba(60, 40, 20, 0.2) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border: 1px solid rgba(232, 196, 160, 0.12) !important;
+  border-radius: 24px !important;
+}
+
+.searchBar_a5de63:focus-within {
+  background: rgba(60, 40, 20, 0.3) !important;
+  border-color: rgba(232, 196, 160, 0.25) !important;
+  box-shadow: 0 0 20px rgba(212, 165, 116, 0.08) !important;
+}
+
+/* Área escritura */
+.scrollableContainer_d0696b {
+  background: rgba(60, 40, 20, 0.2) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border: 1px solid rgba(232, 196, 160, 0.08) !important;
+  border-radius: 20px !important;
+}
+
+/* Input textos */
+.inputDefault_f8bc55,
+.input_f8bc55 {
+  background: rgba(60, 40, 20, 0.2) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(232, 196, 160, 0.08) !important;
+  color: #FFF8F0 !important;
+  border-radius: 14px !important;
+}
+
+.inputDefault_f8bc55:focus,
+.input_f8bc55:focus {
+  background: rgba(60, 40, 20, 0.3) !important;
+  border-color: rgba(232, 196, 160, 0.2) !important;
+}
+
+/* ============================================
+   SIDEBAR Y PANELES — VIDRIO MUY SUTIL
+   ============================================ */
+
+/* Sidebar izquierda */
+.sidebar_a4d4d9 {
+  background: rgba(60, 40, 20, 0.12) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+/* Panel miembros */
+.membersWrap_cbd271 {
+  background: rgba(60, 40, 20, 0.08) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/* Header servidor/canal */
+.header_fd6364,
+.title_a7d72e {
+  background: rgba(60, 40, 20, 0.15) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* ============================================
+   ELEMENTOS INTERACTIVOS — SUAVES, REDONDEADOS
+   ============================================ */
+
+/* Glow seleccionados — Casi imperceptible */
+.item_c4cd66,
+.modeSelected_d8bfb3 .link_d8bfb3 {
+  background: rgba(212, 165, 116, 0.1) !important;
+  box-shadow: 0 0 12px rgba(212, 165, 116, 0.06) !important;
+  border-left: 2px solid rgba(232, 196, 160, 0.3) !important;
+  border-radius: 0 12px 12px 0 !important;
+}
+
+/* Reacciones */
+.reaction_f61c73.reactionMe_f61c73 {
+  background: rgba(212, 165, 116, 0.1) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+  border-color: rgba(232, 196, 160, 0.25) !important;
+}
+
+/* Scrollbar — Caramelo suave */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgba(212, 165, 116, 0.5) 0%,
+    rgba(232, 196, 160, 0.35) 50%,
+    rgba(212, 165, 116, 0.2) 100%
+  ) !important;
+  border-radius: 10px !important;
+  border: 3px solid transparent !important;
+  background-clip: padding-box !important;
+}
+
+/* Barra progreso — Dorada suave */
+.mediaBarGrabber_d12f5a,
+.mediaBarProgress_d12f5a {
+  background: linear-gradient(90deg, #D4A574 0%, #E8C4A0 100%) !important;
+}
+
+/* Typing indicator */
+.typing_d7ebeb {
+  background: rgba(60, 40, 20, 0.3) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(232, 196, 160, 0.1) !important;
+  border-radius: 20px !important;
+}
+
+/* Separadores — Caramelo tenue */
+.divider_c2654d {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(212, 165, 116, 0.15) 20%,
+    rgba(232, 196, 160, 0.25) 50%,
+    rgba(212, 165, 116, 0.15) 80%,
+    transparent 100%
+  ) !important;
+  height: 1px !important;
+}
+
+/* Avatar hablando */
+.avatarSpeaking_c51b4e {
+  box-shadow: 
+    0 0 0 2px rgba(212, 165, 116, 0.4),
+    0 0 12px rgba(212, 165, 116, 0.15) !important;
+}
+
+/* Badges — Caramelo mate */
+.numberBadge_df8943 {
+  background: rgba(212, 165, 116, 0.45) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+}
+
+/* Switch */
+.container_cebd1c {
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+.container_cebd1c.checked_cebd1c {
+  background: rgba(212, 165, 116, 0.35) !important;
+}
+
+/* Slider — Dorado suave */
+.barFill_c7a159 {
+  background: linear-gradient(90deg, #D4A574 0%, #E8C4A0 100%) !important;
+}
+
+/* ============================================
+   ANIMACIONES — LENTAS, PAUSADAS
+   ============================================ */
+
+@keyframes gentleBreath {
+  0%, 100% { 
+    box-shadow: 0 2px 12px rgba(212, 165, 116, 0.08); 
+  }
+  50% { 
+    box-shadow: 0 4px 18px rgba(212, 165, 116, 0.12), 0 0 30px rgba(212, 165, 116, 0.04); 
+  }
+}
+
+.lookFilled_dd4f85.colorBrand_dd4f85:active {
+  animation: gentleBreath 4s infinite ease-in-out !important;
+}
+
+/* ============================================
+   ADD ADDITIONAL CSS BELOW HERE
+   ============================================ */
